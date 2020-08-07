@@ -1,6 +1,4 @@
-// map out colors for ansi
 // https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-// 8 bit.
 
 console.log('=========================')
 console.log('8 bit:')
@@ -59,9 +57,6 @@ const colors = {
   bMagenta: 13,
   bCyan: 14,
   bWhite: 15,
-  // textColor: (color, param)  => {
-  //   return textwrap(this.red, param)
-  // }
   textColor : function(color, param) {
     return textwrap(this[color],param);
  }
@@ -90,8 +85,6 @@ console.log(textwrap(colors.red, `testing`))
 console.log(background(colors.red), background(colors.green))
 console.log(textAndBackground(colors.red, colors.green, `testing`))
 
-// let test = colors.textColor(colors.red, 'things')
-// console.log(test)
 
 let test = colors.textColor('red', 'things')
 console.log(test)
