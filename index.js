@@ -57,34 +57,24 @@ const colors = {
   bMagenta: 13,
   bCyan: 14,
   bWhite: 15,
-  textColor : function(color, param) {
-    return textwrap(this[color],param);
- }
+  textColor: function (color, text) {
+    return `\x1b[38;5;${this[color]}m${text}\x1b[0m`
+  },
+  textAndBackground: function(textColor, backgroundColor, text) {
+    return `\x1b[48;5;${this[backgroundColor]}m\x1b[38;5;${this[textColor]}m${text}\x1b[0m`
+  },
+  backgroundColor: function (backgroundColor, width) {
+    let str = ''
+    return `\x1b[48;5;${this[backgroundColor]}m${str.padStart(width, ' ')}\x1b[0m`
+  }
 }
-
-const formatting = {}
 
 console.log('=========================')
 console.log('examples:')
 
-const background = (backgroundColor) => {
-
-  return `\x1b[48;5;${backgroundColor}m       \x1b[0m`
-}
-
-const textwrap = (textColor, text) => {
-    return `\x1b[38;5;${textColor}m${text}\x1b[0m`
-}
-
-const textAndBackground = (textColor, backgroundColor, text) => {
-  return `\x1b[48;5;${backgroundColor}m\x1b[38;5;${textColor}m${text}\x1b[0m`
-}
-
-console.log(textwrap(colors.red, `testing`))
-
-console.log(background(colors.red), background(colors.green))
-console.log(textAndBackground(colors.red, colors.green, `testing`))
-
-
 let test = colors.textColor('red', 'things')
 console.log(test)
+
+console.log(colors.backgroundColor('red', 4), colors.backgroundColor('blue', 4))
+
+console.log(colors.textAndBackground('red', 'green', 'does this work?'))
