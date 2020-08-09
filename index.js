@@ -75,6 +75,6 @@ console.log('examples:')
 let test = colors.textColor('red', 'things')
 console.log(test)
 
-console.log(colors.backgroundColor('red', 4), colors.backgroundColor('blue', 4))
+console.log(colors.backgroundColor('red', 2), colors.backgroundColor('blue', 4))
 
 console.log(colors.textAndBackground('red', 'green', 'does this work?'))
