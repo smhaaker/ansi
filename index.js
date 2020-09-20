@@ -20,6 +20,7 @@ console.log('\x1b[38;5;13mText\x1b[0m')
 console.log('\x1b[38;5;14mText\x1b[0m')
 console.log('\x1b[38;5;15mText\x1b[0m')
 
+
 console.log('=========================')
 console.log('backgrounds:')
 console.log('\x1b[48;5;0m       \x1b[0m')
